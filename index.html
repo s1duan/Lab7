@@ -91,7 +91,7 @@
           .then(
             function(response){
               if (response.status != 200){
-                console.log("Errow, status code: " + response.status)
+                output.innerText = "Error, status code: " + response.status
                 return
               }
               response.json().then(function(data) {
@@ -100,7 +100,7 @@
             }
           )
           .catch(function(err) {
-            console.log("Fetch Error :-S", err)
+            output.innerText = "Fetch Error: " + err
           })
       }
 
@@ -117,7 +117,7 @@
           .then(
             function(response){
               if (response.status != 200){
-                console.log("Errow, status code: " + response.status)
+                output.innerText = "Error, status code: " + response.status
                 return
               }
               response.json().then(function(data) {
@@ -126,7 +126,7 @@
             }
           )
           .catch(function(err) {
-            console.log("Fetch Error :-S", err)
+            output.innerText = "Fetch Error: " + err
           })
       }
 
@@ -158,7 +158,7 @@
             response.json().then(function(data){ output.innerText = JSON.stringify(data)})
           })
           .catch(function (error){
-            console.log('Request failed', error)
+            output.innerText = "Fetch Error: " + err
           })
           document.getElementById("recordForm").style.display = "none"
         }
@@ -191,10 +191,14 @@
             }
           })
           .then(function (response){
+            if (response.status != 200){
+                output.innerText = "Error, status code: " + response.status
+                return
+            }
             response.json().then(function(data){ output.innerText = JSON.stringify(data)})
           })
           .catch(function (error){
-            console.log('Request failed', error)
+            output.innerText = "Fetch Error: " + err
           })
           document.getElementById("recordForm").style.display = "none"
           document.getElementById("recordIDcontainer").style.display = "none"
@@ -219,7 +223,7 @@
         .then(
             function(response){
               if (response.status != 200){
-                console.log("Errow, status code: " + response.status)
+                output.innerText = "Error, status code: " + response.status
                 return
               }
               response.json().then(function(data) {
@@ -228,7 +232,7 @@
             }
           )
           .catch(function(err) {
-            console.log("Fetch Error :-S", err)
+            output.innerText = "Fetch Error: " + err
           })
       }
 
